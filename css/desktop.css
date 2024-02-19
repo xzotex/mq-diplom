@@ -46,7 +46,7 @@ main {
 }
 
 .header {
-    background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url("https://netology-code.github.io/html-2-diploma/sources/images/banner-bg.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://netology-code.github.io/html-2-diploma/sources/images/banner-bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -71,15 +71,18 @@ main {
     padding-right: 400px;
 }
 
+#burger, [for=burger] {
+    display: none;
+}
+
 .nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     font-family: OpenSans, sans-serif;
     font-size: 13px;
     text-transform: uppercase;
     margin: 0 245px;
     padding-top: 36px;
-
 }
 
 .nav__link {
@@ -119,22 +122,22 @@ main {
 }
 
 .trends__img_1 {
-    background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url("/images/trend1.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/trend1.jpg");
     background-size: cover;
 }
 
 .trends__img_2 {
-    background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url("/images/trend2.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/trend2.jpg");
     background-size: cover;
 }
 
 .trends__img_3 {
-    background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url("/images/trend3.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/trend3.jpg");
     background-size: cover;
 }
 
 .trends__img_4 {
-    background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url("/images/trend4.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/trend4.jpg");
     background-size: cover;
 }
 
@@ -177,7 +180,6 @@ main {
     display: flex;
     gap: 35px;
 }
-
 
 
 .post {
@@ -245,8 +247,9 @@ main {
 }
 
 .post__item {
-    height: 295px;
-    width: 780px;
+    max-height: 295px;
+"!!!!!!!!!" max-width: 780 px;
+"!!!!!!!!!"
 }
 
 .post__text {
@@ -494,101 +497,67 @@ main {
 }
 
 @media (min-width: 641px) and (max-width: 1200px) {
-    .nav {
-        justify-content: space-evenly;
-    }
 
 
-
-
-
-
-
-    .burger__checkbox {
-        position: absolute;
-        visibility: hidden;
-    }
-
-    .burger {
-        position: relative;
-        left: 200px;
-        right: auto;
-        z-index: 1;
-        cursor: pointer;
-        display: block;
-        position: relative;
-        border: none;
-        background: transparent;
-        width: 30px;
-        height: 26px;
-    }
-
-    .burger::before,
-    .burger::after {
-        content: '';
-        left: 0;
-        position: absolute;
-        display: block;
+    .container {
         width: 100%;
-        height: 4px;
+        margin-right: 35px;
+        margin-left: 35px;
+    }
+
+    .logo {
+        right: 20%;
+    }
+
+    [for=burger] {
+        display: block;
+        position: fixed;
+        width: 20px;
+        right: 20px;
+        color: white;
+        font-size: 20px;
+    }
+
+    #burger:checked + label + .nav__list {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        margin-right: -85%;
+        margin-top: 2%;
+        top: 3%;
+        gap: 20px;
+        padding: 10px;
         border-radius: 10px;
-        background: #000;
+        position: fixed;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
     }
-
-    .burger::before {
-
-        top: 0;
-        box-shadow: 0 11px 0 #000;
-        transition: box-shadow .3s .15s, top .3s .15s, transform .3s;
-    }
-    .burger::after {
-        bottom: 0;
-        transition: bottom .3s .15s, transform .3s;
-    }
-
-    /*.burger__checkbox:checked + .burger::before {*/
-    /*    top: 11px;*/
-    /*    transform: rotate(45deg);*/
-    /*    box-shadow: 0 6px 0 rgba(0,0,0,0);*/
-    /*    transition: box-shadow .15s, top .3s, transform .3s .15s;*/
-    /*}*/
-
-    /*.burger__checkbox:checked + .burger::after {*/
-    /*    bottom: 11px;*/
-    /*    !*transform: rotate(-45deg);*!*/
-    /*    transition: bottom .3s, transform .3s .15s;*/
-    /*}*/
 
     .nav__list {
-        top: 0;
-        left: 0;
-        position: absolute;
+        display: none;
+        top: 30px;
+    }
+
+    .trends__list {
         display: grid;
-        gap: 12px;
-        padding: 42px 0;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .trends__item {
+        width: 100%;
+    }
+
+    .post__item {
+        display: flex;
+        flex-direction: column;
         margin: 0;
-        /*background: orange;*/
-        list-style-type: none;
-        transform: translateX(-100%);
-        transition: .3s;
-        width: 200px;
     }
 
-    .nav__link {
-        display: block;
-        padding: 8px;
-        color: white;
-        font-size: 18px;
-        text-align: center;
-        text-decoration: none;
-    }
-
-    .nav__link:hover {
-        background: rgba(255,255,255,.2)
-    }
-
-    .burger__checkbox:checked ~ .nav__list {
-        transform: translateX(0);
+    .post__img {
+        position: relative;
+        top: 100px;
+        width: 60%;
+        flex-direction: column;
+        margin: 0;
     }
 }
 
